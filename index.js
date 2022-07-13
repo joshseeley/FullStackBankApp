@@ -45,6 +45,6 @@ app.get('/accounts/all', function (req,res){
         })
 })
 
-var port = process.env.PORT || 3000;
+var port = process.env.MONGODB_URI || 3000;
 app.listen(port);
 console.log('running on port' + port);
