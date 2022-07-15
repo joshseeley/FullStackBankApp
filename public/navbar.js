@@ -1,4 +1,6 @@
 function NavBar(props){
+  const ctx = React.useContext(UserContext);
+  let name = ctx.users[0].name;
   
   let verify = props.count;
   console.log(`nav-count: ${verify}`);
@@ -24,23 +26,32 @@ function NavBar(props){
                 </li>  
               </>
             }
-            {verify == 1 && 
-            <>              
-            <li className="nav-item">
-              <a className="nav-link" href="#/deposit/">Deposit</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#/withdraw/">Withdraw</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#/logout/">Logout</a>
-            </li>
-            </>
-            }     
             <li className="nav-item">
               <a className="nav-link" href="#/alldata/">AllData</a>
             </li>          
-          </ul>
+          </ul>          
+            
+            {verify == 1 && 
+            <> 
+            <ul className="navbar-nav">            
+              <li className="nav-item">
+                <a className="nav-link" href="#/deposit/">Deposit</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#/withdraw/">Withdraw</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#/logout/">Logout</a>
+              </li>
+            </ul>   
+            <ul className="navbar-nav ml-auto">
+              <li className="nav-item">
+                <a className="nav-link" href="#/logout/">{name}</a>
+              </li>
+            </ul>            
+            </>
+            }          
+                    
         </div>
       </nav>
   
